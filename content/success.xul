@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+
+
+<window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"> 
+
+<script src="overlay.js"/>
+<script src="yes.js"/>
+<groupbox>
+		<caption style="font: bold 11px Verdana, sans-serif !important; color:#000000; background-color=#000000;" align="center"  label=" "/> 
+	
+	<groupbox>
+	<caption  style="color:black;font-weight:bold;font-style:italic;" align="center" height="50" width="50" label="Your connection is set successfully"/>
+	</groupbox>
+	 
+	
+	 <groupbox>
+	 <caption style="color:black;font-weight:bold;font-style:italic;" align="center"  label=" Click yes to Continue"/> 
+	 <vbox>
+	 <hbox height="20" width="20"></hbox>
+      <hbox flex="1" id="yes">
+	         
+               <button flex="1" label="Yes" oncommand="yes.onMenuItemCommand(event);window.close();"/>
+			   <button flex="1" label="No" oncommand="close();"/> 
+               
+        </hbox> 
+		 
+      </vbox>
+      
+            
+  
+</groupbox>	  
+</groupbox>
+</window>

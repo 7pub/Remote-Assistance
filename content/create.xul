@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+
+
+<window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"  id="main"
+        title="Create Chat Room" 
+		style="font-family:Verdana;width:290px;height:170px;"
+		onmouseover="mousenotover();">
+<script src="send1.js" />
+<script>
+function Clear(elem)
+{
+if(elem.value=="Enter your name")elem.value='';
+
+elem.style.color="#000000";
+//elem.style.fontSize="10px";
+elem.style.fontFamily="Verdana";
+}	
+function mousenotover()
+{
+ var elem=document.getElementById('username'); 
+if(elem.value==""){elem.value ='Enter your name';elem.style.color="#A4A4A4";elem.style.fontFamily="script";elem.blur();}
+}
+
+</script>		
+		<groupbox>
+		<groupbox>  
+	   <hbox>  
+        <vbox style="padding-left:20px;">
+         <vbox style="padding-top:20px;font: bold 12px Verdana, sans-serif;"> User Name </vbox> 
+         <vbox style="padding-top:35px;font: bold 12px Verdana, sans-serif;"> Description</vbox>
+          </vbox>		
+          <vbox style="padding-left:10px;padding-right:0px;">
+            <vbox style="padding-top:15px;"><textbox value="Enter your name" id="username" style="color:#A4A4A4;width:140px;font-family:script;font-size:18px;" onclick="Clear(this);"></textbox> </vbox>
+            <vbox style="padding-top:15px;"><textbox value="" id="description" style="width:140px;font-size:18px;"></textbox>  </vbox>
+          </vbox></hbox>
+        </groupbox>
+   <groupbox>		
+        <hbox style="padding-top:2px;padding-left:20px;padding-bottom:2px;">
+		<hbox><button label="Create" oncommand="send1.onMenuItemCommand(event);"/></hbox>
+		<hbox style="padding-left:20px;"><button label="Cancel" oncommand="mainWindow.document.getElementById('sidebar').contentWindow.location='chrome://helloworld/content/hello.xul';"/></hbox>
+        </hbox>
+</groupbox>		
+        </groupbox>
+</window>		
+		    

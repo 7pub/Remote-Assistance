@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://helloworld/skin/overlay.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://helloworld/locale/overlay.dtd">
+<overlay id="helloworld-overlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script src="landing.js"/>
+	
+  <menupopup id="menu_ToolsPopup">
+    <menuitem key="" observes="viewEmptySidebar"  />
+  </menupopup>
+  <broadcasterset id="mainBroadcasterSet"> 
+    <broadcaster id="viewEmptySidebar" 
+                 label="&helloworld;"
+                 autoCheck="true"
+                 type="checkbox"
+                 group="sidebar"
+                 sidebarurl="chrome://helloworld/content/hello.xul"
+                 sidebartitle="&helloworld;"
+                 oncommand="toggleSidebar('viewEmptySidebar');" />
+  </broadcasterset>
+</overlay>

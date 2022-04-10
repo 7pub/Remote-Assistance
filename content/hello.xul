@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+<?xml-stylesheet href="chrome://helloworld/skin/hello.css" type="text/css"?>
+<!DOCTYPE window SYSTEM "chrome://helloworld/locale/hello.dtd">
+
+<window 
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" 
+        title="&title.label;" style="height:800px;width:120px;">
+<script src="landing.js" />
+<script src="join.js" />
+<script src="create.js" />
+
+   <caption id ="hell"/>
+ <groupbox >
+  <groupbox>
+	   <description style="font:140%/125% 'Comic Sans MS';color:#819FF7; " align="center">Join the active or create your own room!</description>
+	 <hbox style="font:  140%/125% 'Comic Sans MS', cursive; " align="center">    Active Chatrooms List:</hbox>
+	
+	 
+	
+      <vbox height="300px" width="120px">
+	          
+	<tree id="idtree" flex="10" rows="2"  seltype="single" onselect="fun(id);">
+ 
+  <treecols>
+    <treecol id="image" label="Online" flex="1"/>
+    <treecol id="User_ID" label="User_ID" flex="1"/>
+    <treecol id="Description" label="Description" flex="2"/>
+  </treecols>
+ 
+  <treechildren id="mychildtree">
+    
+  </treechildren>
+ 
+</tree>
+                
+      </vbox>
+       </groupbox>
+	   <vbox>
+           <hbox flex="1">
+		       <button flex="1" label="Join" id="join" disabled="true" oncommand="join.onMenuItemCommand(event);"/>
+		<button flex="1" label="Create" oncommand="mainWindow.document.getElementById('sidebar').contentWindow.location='chrome://helloworld/content/create.xul';"/>  
+		<button flex="1" label="Refresh" key="" observes="Sidebar_Refresh"/>
+		</hbox>
+       <hbox >
+	 <button flex="1" align="center" label="close" key="" observes="Sidebar_Close" />
+       </hbox>	
+  </vbox>
+</groupbox>	
+<broadcasterset id="mainBroadcasterSet"> 
+	<broadcaster id="Sidebar_Close" 
+				 autoCheck="true"
+                 type="checkbox"
+                 group="sidebar"
+                 sidebarurl="chrome://helloworld/content/main.xul"
+                 sidebartitle="Manish"
+                 oncommand="var mainWindow = window.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                   .getInterface(Components.interfaces.nsIWebNavigation)
+                   .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
+                   .rootTreeItem
+                   .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                   .getInterface(Components.interfaces.nsIDOMWindow);mainWindow.toggleSidebar();" />
+	<broadcaster id="Sidebar_Refresh" 
+				 autoCheck="true"
+                 type="checkbox"
+                 group="sidebar"
+                 sidebarurl="chrome://helloworld/content/main.xul"
+                 sidebartitle="Manish"
+                 oncommand="var mainWindow = window.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                   .getInterface(Components.interfaces.nsIWebNavigation)
+                   .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
+                   .rootTreeItem
+                   .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                   .getInterface(Components.interfaces.nsIDOMWindow);
+				   mainWindow.toggleSidebar();
+				   mainWindow.toggleSidebar('viewEmptySidebar');" />
+		<broadcaster id="Sidebar_Recieve" 
+				 autoCheck="true"
+                 type="checkbox"
+                 group="sidebar"
+                 sidebarurl="chrome://helloworld/content/recieve.xul"
+                 sidebartitle="Manish"
+                 oncommand="var mainWindow = window.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                   .getInterface(Components.interfaces.nsIWebNavigation)
+                   .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
+                   .rootTreeItem
+                   .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                   .getInterface(Components.interfaces.nsIDOMWindow);
+				   mainWindow.document.getElementById('sidebar').location='chrome://helloworld/content/recieve.xul';
+				   " 
+				   />
+  </broadcasterset>
+  
+
+</window>

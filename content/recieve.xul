@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+<?xml-stylesheet href="chrome://helloworld/skin/hello.css" type="text/css"?>
+
+<!DOCTYPE window SYSTEM "chrome://helloworld/locale/hello.dtd">
+
+<window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" 
+        title="&title.label;" onmouseover="mousenotover(document.getElementById('id1'));" style="height:800px;width:100px;background-color:#EBFAE3">
+
+<script src="startchat.js"/>
+<script src="sendmessage.js"/>
+<script src="reset.js"/>
+<script src="recieve.js"/>
+
+
+<script>
+function mousenotover(elem)
+{
+ 
+if(elem.value==""){elem.value ='Enter your name';
+                   elem.style.color='#A4A4A4';
+				   elem.style.fontFamily='script';
+				   elem.style.fontSize='18px';
+				   elem.style.width='140px';
+				   elem.blur();}
+}
+function Clear(elem)
+{
+if(elem.value=="Enter your name"){elem.value='';elem.style.color='#000000';elem.style.fontFamily='Verdana';}
+if(elem.value=="Enter reciever name")elem.value='';
+}
+</script>
+  
+  
+		<caption id="REC" style=" font: italic 175%/125% 'Verdana', cursive; background-color:#EBFAE3;" align="center" label="  Recieve Window"/>
+			  
+	<groupbox>	
+      <caption id="BUT1" align="center" onclick="HelloWorld.onMenuItemCommand(event);"/>
+           
+	   <hbox width="300">   
+		   <vbox><textbox width="140" id="id1" style="color:#A4A4A4;width:140px;font-family:script;font-size:18px; " value="Enter your name" onclick="Clear(this);"></textbox></vbox>
+		   <vbox><button label="Start chat" style="font:bold 17px  Gill Sans MT, ; background-color=#000000; " width="140" oncommand="startchat.onMenuItemCommand(event);"/></vbox>
+        </hbox>
+	  
+	
+	
+	<groupbox>
+	<caption style="font: bold 17px  Gill Sans MT, sans-serif;" label="Chat bar"/>
+	  <groupbox>
+      <vbox>
+            <hbox style="font: bold 17px  Gill Sans MT, sans-serif;">Enter Message :</hbox> 
+                <textbox id="id2" width="150" height="50" align="middle" multiline="true" 
+				   style="border:1px solid #585858;
+                          -webkit-box-shadow:0 0 1px #585858;
+                          -moz-box-shadow:0 0 1px #007eff;
+                           box-shadow:0 0 1px #585858;
+						   padding:5 px;" value=""/>
+      </vbox>
+      </groupbox>         
+				<position align="right"> <button label="Send" style="font: bold 125%/125% 'Comic Sans MS', cursive; background-color=#000000;"  oncommand="send.onMenuItemCommand(event);"></button></position>
+      <groupbox>
+	 <hbox style="font: bold 105%/125% 'Comic Sans MS', cursive; background-color=#000000;">Main Chat Window :</hbox>
+      <vbox>
+                <textbox id="text" width="150" height="180" multiline="true" readonly="true" class="plain" 
+				   style="border:3px solid #000000;-webkit-box-shadow:0 0 1px #585858;
+                          -moz-box-shadow:0 0 1px #007eff;
+                           box-shadow:0 0 1px #000000;
+						   padding:5 px;background-color:#f3f8f8;font-size: 13px;" value=""/>
+      </vbox>
+       </groupbox>
+           <hbox>
+                
+                <button style="font: bold 105%/125% 'Comic Sans MS', cursive; background-color=#000000;" label="Close" oncommand="mainWindow.document.getElementById('sidebar').contentWindow.location='chrome://helloworld/content/hello.xul';"/>  
+           </hbox>
+  
+  
+</groupbox>	  
+</groupbox>
+</window>

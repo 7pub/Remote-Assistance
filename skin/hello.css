@@ -1,0 +1,31 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+treechildren:-moz-tree-column {
+  border-right:1px solid rgb(220,220,220) !important;
+}
+treechildren::-moz-tree-row(selected)            { background-color: #9AFE2E; }
+treechildren::-moz-tree-row(odd)                 { background-color: #EFF2FB; }
+treechildren::-moz-tree-row(even)                 { background-color: #CECEF6; }
+treechildren::-moz-tree-row(odd, selected)       { background-color: #819FF7; }
+treechildren::-moz-tree-row(even, selected)       { background-color: #819FF7; }
+treechildren::-moz-tree-cell-text(selected)      { color: #000000; }
+treechildren::-moz-tree-cell-text(odd, selected) { color: #000000; }
+treechildren::-moz-tree-row(makeItBlue)
+{
+  background-color: #819FF7;
+}
+treechildren:-moz-tree-image(image)  {
+  list-style-image: url("chrome://helloworld/content/enabled.png");
+}
+#hell {
+list-style-image: url("chrome://helloworld/content/ic.gif");
+}
+#SEN  {
+  list-style-image: url("chrome://helloworld/content/sen.png");
+}
+#REC  {
+  list-style-image: url("chrome://helloworld/content/rec.png");
+}
+#BUT1  {
+  list-style-image: url("chrome://helloworld/content/but1.png");
+}
+
